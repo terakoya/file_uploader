@@ -4,6 +4,6 @@
 
 ```
 bundle install
-cp config/database.{sampel,}.yml
+cp config/database{.sample,}.yml
 rake db:migrate
 ```
