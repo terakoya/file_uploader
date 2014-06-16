@@ -27,8 +27,8 @@ class MaterialsController < ApplicationController
     save_path = File.join("public/materials", params[:material][:path].original_filename)
     File.open(save_path, "wb") { |f| f.write(params[:material][:path].read) }
 
-    @material = Material.new(path: save_path.to_s)
-
+    #@material = Material.new(path: save_path.to_s)
+    @material = Material.new(material_params)
     respond_to do |format|
       if @material.save
         format.html { redirect_to @material, notice: 'Material was successfully created.' }
@@ -71,7 +71,7 @@ class MaterialsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def material_params
+  def material_params
       params.require(:material).permit(:path)
     end
 end
