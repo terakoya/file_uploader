@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Path:</strong>
-  <%= @material.path %>
+  <strong>Preview:</strong>
+  <img src= <%= @material.path.gsub("public/materials/","") if @material.path.present? %> width=300>
 </p>
 
 <%= link_to 'Edit', edit_material_path(@material) %> |
